@@ -1,2 +1,2 @@
-# emulador-so-np1
-Trabalho de SO da NP1
+# emulador-np1
+Trabalho de Arquitetura de Sistemas da NP1.
