@@ -7,11 +7,25 @@ class Utils
     gets.chomp
   end
 
-  def self.read_file name
-    f = File.open("./files/#{name}.txt", "r")
-    f.each_line do |line|
-      puts line
+  def self.create_menu_one
+    puts "------- SUB_MENU 1 -------"
+    puts "Qual o nome do Arquivo?"
+    puts "0 - Voltar"
+    name_file = gets.chomp
+    if name_file != "0"
+      Utils.read_file name_file
     end
-    f.close
+  end
+
+  def self.read_file name
+    begin
+      f = File.open("./files/#{name}.txt", "r")
+      f.each_line do |line|
+        puts line
+      end
+      f.close
+    rescue
+      print "Arquivo não existente!!!\n"
+    end
   end
 end
