@@ -1,3 +1,5 @@
+require './models/teste.rb'
+
 class Utils
 
   def self.create_menu
@@ -13,17 +15,22 @@ class Utils
     puts "0 - Voltar"
     name_file = gets.chomp
     if name_file != "0"
-      Utils.read_file name_file
+      teste= Teste.new
+      teste.process= Utils.read_file name_file
+      teste.execute
     end
   end
 
   def self.read_file name
     begin
+      lines= []
       f = File.open("./files/#{name}.txt", "r")
       f.each_line do |line|
-        puts line
+        lines.push line
       end
       f.close
+
+      lines
     rescue
       print "Arquivo não existente!!!\n"
     end
